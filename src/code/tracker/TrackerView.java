@@ -5,6 +5,7 @@ import code.tracker.utils.View;
 import code.tracker.utils.types.ComponentTypes;
 import javafx.scene.Node;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 
 import java.util.Map;
 
@@ -13,17 +14,18 @@ import java.util.Map;
  */
 public class TrackerView implements TrackerController.ITrackerView {
 
-  private BorderPane mainContainer;
+  private StackPane mainContainer;
 
   public TrackerView(Map<ComponentTypes, Component> componentsMap) {
     init(componentsMap);
   }
 
   private void init(Map<ComponentTypes, Component> componentsMap) {
-    mainContainer = new BorderPane();
     View activitiesLayout = componentsMap.get(ComponentTypes.ACTIVITIES_LAYOUT).getView();
 
-    mainContainer.setCenter(activitiesLayout.asNode());
+    BorderPane borderPane = new BorderPane(activitiesLayout.asNode());
+
+    mainContainer = new StackPane(borderPane);
   }
 
   @Override

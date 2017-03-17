@@ -16,7 +16,11 @@ public class ActivitiesLayoutView implements ActivitiesLayoutController.IActivit
 
   private void init() {
     activitiesPane = new JFXMasonryPane();
+  }
 
+  @Override
+  public JFXMasonryPane getActivitiesPane() {
+    return activitiesPane;
   }
 
   @Override

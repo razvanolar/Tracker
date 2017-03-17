@@ -1,6 +1,8 @@
 package code;
 
+import code.tracker.EventBus;
 import code.tracker.TrackerController;
+import code.tracker.events.LoadExercisesEvent;
 import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -29,6 +31,7 @@ public class TrackerApplication extends Application {
     primaryStage.setScene(scene);
     primaryStage.setMaximized(true);
     primaryStage.show();
+    EventBus.fireEvent(new LoadExercisesEvent());
   }
 
 
